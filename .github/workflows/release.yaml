@@ -10,12 +10,7 @@ jobs:
       group: "acc"
       cancel-in-progress: false
 
-    uses: guidion-digital/terrappy/.github/workflows/tf-module-releaser.yaml@v1
+    uses: guidion-digital/terrappy/.github/workflows/tf-module-releaser.yaml@v2
     permissions:
       contents: write
-    with:
-      environment_variables: |
-        AWS_ACCESS_KEY_ID=${{ vars.MODULE_TESTER_AWS_ACCESS_KEY_ID }}
-    secrets:
-      environment_secrets: |
-        AWS_SECRET_ACCESS_KEY=${{ secrets.MODULE_TESTER_AWS_SECRET_ACCESS_KEY }}
+    secrets: inherit
