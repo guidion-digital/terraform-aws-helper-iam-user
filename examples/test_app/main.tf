@@ -8,7 +8,7 @@ provider "github" {
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
 
     github = {
@@ -19,7 +19,7 @@ terraform {
 }
 
 
-module "cdn_uploader" {
+module "project_x" {
   source = "../../"
 
   providers = {
@@ -30,11 +30,12 @@ module "cdn_uploader" {
   username  = "s3-uploader"
   namespace = "github"
 
-  github = {
-    repository = "cdn"
-    # Requires the environment to exist
-    # environment = "prod"
-  }
+  # FIXME: Will remain untested for now, to save us requiring a Github token
+  # github = {
+  #   repository = "test-repo"
+  #   # Requires the environment to exist
+  #   # environment = "prod"
+  # }
 
   asm_storage = {
     recovery_window = 0
